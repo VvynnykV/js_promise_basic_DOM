@@ -9,9 +9,7 @@ const promise1 = new Promise((resolve, reject) => {
 });
 
 const promise2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject(new Error('Promise rejected after 3 seconds'));
-  }, 3000);
+  setTimeout(() => reject(new Error()), 3000);
 });
 
 const successHandler = () => {
@@ -25,7 +23,7 @@ const successHandler = () => {
 const errorHandler = () => {
   const errorMessage = document.createElement('div');
 
-  errorMessage.classList.add('message error-message');
+  errorMessage.classList.add('message', 'error-message');
   errorMessage.innerHTML = 'Promise was rejected!';
   document.body.append(errorMessage);
 };
